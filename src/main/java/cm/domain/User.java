@@ -12,7 +12,7 @@ import javax.persistence.Id;
 public class User {
 
     @Id @GeneratedValue()
-    int id;
+    String id;
 
     @Column(name = "username")
     String name;
