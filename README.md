@@ -1,2 +1,2 @@
-# CollaboMaster
-Spring boot + JPA 를 이용한 CollaboMaster 프로젝트
+# SimpleBoard
+Spring boot + JPA를 이용한 간단한 REST 게시판 
