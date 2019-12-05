@@ -14,6 +14,7 @@
 </head>
 <body>
 <h1>Simple Board</h1>
+<h1>테스트 : ${postEx.title}</h1>
 <c:if test="${user == null}">
     <div class="signin-cont cont">
         <form action="login" method="post" modelAttribute="User">
@@ -30,5 +31,30 @@
         <a href="/">로그아웃</a>
     </div>
 </c:if>
+
+<table>
+    <thead>
+    <tr>
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회수</th>
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach var="post" items="${posts}">
+        <tr>
+            <td>${post.id}</td>
+            <td>${post.title}</td>
+            <td>작성자</td>
+            <td>작성일</td>
+            <td>조회수</td>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
+
+
 </body>
 </html>

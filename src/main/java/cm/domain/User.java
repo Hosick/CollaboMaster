@@ -1,21 +1,25 @@
 package cm.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
-@Entity
 @Data
+@Entity
 public class User {
 
-    @Id @GeneratedValue()
+    @Id
     String id;
 
     @Column(name = "username")
     String name;
 
     String password;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    List<Post> posts;
+
 }
