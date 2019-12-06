@@ -26,7 +26,7 @@ public class MainController {
     @RequestMapping
     public String main(Model model){
         List<Post> posts = postRepository.findAll();
-        model.addAttribute(posts);
+        model.addAttribute("posts",posts);
         return "main";
     }
 
@@ -36,7 +36,7 @@ public class MainController {
         User user = userRepository.findById(id).get();
         List<Post> posts = postRepository.findAll();
         model.addAttribute(user);
-        model.addAttribute(posts);
+        model.addAttribute("posts",posts);
         return "main";
     }
 

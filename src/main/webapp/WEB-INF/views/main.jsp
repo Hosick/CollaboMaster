@@ -10,13 +10,16 @@
 
 <html>
 <head>
-    <title>Test</title>
+    <title>Simple Board</title>
+    <%--테이블 css 적용--%>
+    <link rel="stylesheet" type="text/css" href="res/table.css"/>
+    <%--버튼 css 적용--%>
+    <link rel="stylesheet" type="text/css" href="res/button.css"/>
 </head>
 <body>
 <h1>Simple Board</h1>
-<h1>테스트 : ${postEx.title}</h1>
 <c:if test="${user == null}">
-    <div class="signin-cont cont">
+    <div>
         <form action="login" method="post" modelAttribute="User">
             <input type="text" name="id" id="id" required="required" placeholder="Id">
             <input type="password" name="password" id="password" required="required" placeholder="비밀번호">
@@ -27,8 +30,10 @@
 
 <c:if test="${user != null}">
     <div>
-        <h3>${user.name}님 안녕하세요</h3>
-        <a href="/">로그아웃</a>
+        <form action="/" method="post">
+            <strong>${user.name}님 안녕하세요</strong>
+            <input type="submit" value="로그아웃" class="submit">
+        </form>
     </div>
 </c:if>
 
@@ -47,9 +52,9 @@
         <tr>
             <td>${post.id}</td>
             <td>${post.title}</td>
-            <td>작성자</td>
-            <td>작성일</td>
-            <td>조회수</td>
+            <td>${post.user.name}</td>
+            <td>?</td>
+            <td>?</td>
         </tr>
     </c:forEach>
     </tbody>
