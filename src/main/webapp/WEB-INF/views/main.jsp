@@ -34,7 +34,11 @@
             <strong>${user.name}님 안녕하세요</strong>
             <input type="submit" value="로그아웃" class="submit">
         </form>
+        <form action="write" method="post" style="float: right;">
+            <input type="submit" value="글쓰기" class="submit">
+        </form>
     </div>
+
 </c:if>
 
 <table>

@@ -40,4 +40,9 @@ public class MainController {
         return "main";
     }
 
+    @RequestMapping("write")
+    public String write(Model model){
+        return "writePost";
+    }
+
 }

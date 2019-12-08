@@ -1,22 +1,27 @@
 package cm.domain;
 
 import lombok.Data;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @Entity
 public class Post {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    private int id;
 
-    String title;
+    private String title;
 
-    String content;
+    @Lob
+    private String content;
+
+    @CreatedDate
+    private Date date;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    User user;
-
+    private User user;
 }
