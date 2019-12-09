@@ -7,6 +7,8 @@ import cm.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -23,7 +25,7 @@ public class MainController {
 
 
     /*메인페이지*/
-    @RequestMapping
+    @GetMapping
     public String main(Model model){
         List<Post> posts = postRepository.findAll();
         model.addAttribute("posts",posts);
@@ -36,6 +38,13 @@ public class MainController {
         User user = userRepository.findById(id).get();
         List<Post> posts = postRepository.findAll();
         model.addAttribute(user);
+        model.addAttribute("posts",posts);
+        return "main";
+    }
+
+    @PostMapping
+    public String logout(Model model){
+        List<Post> posts = postRepository.findAll();
         model.addAttribute("posts",posts);
         return "main";
     }
