@@ -12,9 +12,9 @@
 <head>
     <title>Simple Board</title>
     <%--테이블 css 적용--%>
-    <link rel="stylesheet" type="text/css" href="res/table.css"/>
+    <link rel="stylesheet" type="text/css" href="table.css"/>
     <%--버튼 css 적용--%>
-    <link rel="stylesheet" type="text/css" href="res/button.css"/>
+    <link rel="stylesheet" type="text/css" href="button.css"/>
 </head>
 <body>
 <h1>Simple Board</h1>
