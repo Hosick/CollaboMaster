@@ -12,6 +12,12 @@
 </head>
 <body>
 <h1>게시물 작성</h1>
-
+<%--<div>
+    <form action="login" method="post" modelAttribute="User">
+        <input type="text" name="id" id="id" required="required" placeholder="Id">
+        <input type="password" name="password" id="password" required="required" placeholder="비밀번호">
+        <input type="submit" value="로그인" class="submit">
+    </form>
+</div>--%>
 </body>
 </html>
