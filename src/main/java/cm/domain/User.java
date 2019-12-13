@@ -18,6 +18,10 @@ public class User {
 
     String password;
 
+    String email;
+
+    String userType;
+
     @JsonIgnore
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     List<Post> posts;

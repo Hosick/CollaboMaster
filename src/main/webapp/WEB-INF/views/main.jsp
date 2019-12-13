@@ -25,6 +25,7 @@
             <input type="password" name="password" id="password" required="required" placeholder="비밀번호">
             <input type="submit" value="로그인" class="submit">
         </form>
+        <a href="signUp" type="button">회원가입</a>
     </div>
 </c:if>
 
@@ -34,9 +35,7 @@
             <strong>${user.name}님 안녕하세요</strong>
             <input type="submit" value="로그아웃" class="submit">
         </form>
-        <form action="write" method="post" style="float: right;">
-            <input type="submit" value="글쓰기" class="submit">
-        </form>
+        <a href="write" type="button" style="float: right;">글쓰기</a>
     </div>
 
 </c:if>
