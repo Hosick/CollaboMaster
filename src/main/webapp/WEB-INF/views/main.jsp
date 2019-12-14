@@ -15,6 +15,8 @@
     <link rel="stylesheet" type="text/css" href="table.css"/>
     <%--버튼 css 적용--%>
     <link rel="stylesheet" type="text/css" href="button.css"/>
+    <%--폼 css 적용--%>
+    <%--<link rel="stylesheet" type="text/css" href="common.css"/>--%>
 </head>
 <body>
 <h1>Simple Board</h1>

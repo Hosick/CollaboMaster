@@ -8,7 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>게시물 작성</title>
+    <%--버튼 css 적용--%>
+    <link rel="stylesheet" type="text/css" href="button.css"/>
+    <%--에러 css 적용--%>
+    <link rel="stylesheet" type="text/css" href="error.css"/>
+    <%--폼 css 적용--%>
+    <%--<link rel="stylesheet" type="text/css" href="common.css"/>--%>
 </head>
 <body>
 <h1>게시물 작성</h1>
