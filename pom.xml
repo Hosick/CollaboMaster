@@ -65,18 +65,15 @@
         <dependency><!--내장 톰캣 의존성 추가-->
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
-        </dependency><!---->
-        <!--jstl 의존성 추가-->
-        <dependency>
+        </dependency>
+        <dependency> <!--jstl 의존성 추가-->
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
-        </dependency><!---->
-        <!--spring security 의존성 추가-->
-        <dependency>
+        </dependency>
+        <dependency> <!--spring security 의존성 추가-->
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-taglibs</artifactId>
-        </dependency><!---->
-
+        </dependency>
 
     </dependencies>
 
