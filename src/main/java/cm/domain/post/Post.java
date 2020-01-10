@@ -1,5 +1,6 @@
 package cm.domain.post;
 
+import cm.domain.BaseTimeEntity;
 import cm.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
@@ -12,7 +13,7 @@ import java.util.Date;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Post {
+public class Post extends BaseTimeEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -32,5 +33,10 @@ public class Post {
         this.title = title;
         this.content = content;
         this.user = user;
+    }
+
+    public void update(String title, String content){
+        this.title = title;
+        this.content = content;
     }
 }
