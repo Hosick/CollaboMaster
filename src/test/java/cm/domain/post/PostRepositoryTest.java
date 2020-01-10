@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -59,5 +60,24 @@ public class PostRepositoryTest {
         assertThat(postFirst.getUser().getName()).isEqualTo(testUser.getName());
     }
 
+    @Test
+    public void BaseTimeEntity_등록(){
+        //given
+        LocalDateTime now = LocalDateTime.of(2020,1,10,0,0,0);
+        postRepository.save(Post.builder()
+        .title("title")
+        .content("content")
+        .build());
 
+        //when
+        List<Post> posts = postRepository.findAll();
+
+        //then
+        Post post = posts.get(0);
+
+        System.out.println(">>>>>>>>>> createDate = "+post.getCreatedDate()+", modifiedDate = "+post.getModifiedDate());
+
+        assertThat(post.getCreatedDate()).isAfter(now);
+        assertThat(post.getModifiedDate()).isAfter(now);
+    }
 }
