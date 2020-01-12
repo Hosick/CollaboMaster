@@ -18,12 +18,12 @@ import java.util.stream.Collectors;
 public class PostService {
     private final PostRepository postRepository;
 
-    @Transactional
+    @Transactional  //  게시글 저장
     public Long save(PostSaveRequestDto requestDto) {
         return postRepository.save(requestDto.toEntity()).getId();
     }
 
-    @Transactional
+    @Transactional  //  게시글 수정
     public Long update(Long id, PostUpdateRequestDto requestDto) {
         Post post = postRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + id));
@@ -31,16 +31,23 @@ public class PostService {
         return id;
     }
 
-    public PostResponseDto findById(Long id) {
+    public PostResponseDto findById(Long id) {  //  id로 게시글 찾기
         Post entity = postRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + id));
         return new PostResponseDto(entity);
     }
 
-    @Transactional(readOnly = true)
-    public List<PostListResponseDto> findAllDesc(){
+    @Transactional(readOnly = true) //  전체 게시글 조회
+    public List<PostListResponseDto> findAllDesc() {
         return postRepository.findAllDesc().stream()
                 .map(PostListResponseDto::new)
                 .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public void delete(Long id) {
+        Post post = postRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id = " + id));
+        postRepository.delete(post);
     }
 }
