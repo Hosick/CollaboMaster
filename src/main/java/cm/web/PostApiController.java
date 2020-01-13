@@ -17,17 +17,17 @@ public class PostApiController {
         return postService.save(requestDto);
     }
 
-    @GetMapping("/api/v1/post/{id}")    //  게시글 수정 Get
+    @GetMapping("/api/v1/post/{id}")    //  게시글 수정 GET
     public PostResponseDto findById(@PathVariable Long id) {
         return postService.findById(id);
     }
 
-    @PutMapping("/api/v1/post/{id}")    //  게시글 수정 Put
+    @PutMapping("/api/v1/post/{id}")    //  게시글 수정 PUT
     public Long update(@PathVariable Long id, @RequestBody PostUpdateRequestDto requestDto) {
         return postService.update(id, requestDto);
     }
 
-    @DeleteMapping("/api/v1/post/{id}")
+    @DeleteMapping("/api/v1/post/{id}") //  게시글 삭제 DELETE
     public Long delete(@PathVariable Long id){
         postService.delete(id);
         return id;
