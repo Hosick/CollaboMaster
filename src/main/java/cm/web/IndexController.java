@@ -1,5 +1,6 @@
 package cm.web;
 
+import cm.config.auth.dto.SessionUser;
 import cm.service.PostService;
 import cm.web.dto.PostResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -8,15 +9,22 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import javax.servlet.http.HttpSession;
+
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
 
     private final PostService postService;
+    private final HttpSession httpSession;
 
     @GetMapping("/")    //  메인 페이지 호출
     public String index(Model model) {
         model.addAttribute("posts", postService.findAllDesc());
+        SessionUser user = (SessionUser) httpSession.getAttribute("user");
+        if (user != null) {
+            model.addAttribute("userName", user.getName());
+        }
         return "index";
     }
 
