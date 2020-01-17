@@ -1,5 +1,6 @@
 package cm.web;
 
+import cm.config.auth.LoginUser;
 import cm.config.auth.dto.SessionUser;
 import cm.service.PostService;
 import cm.web.dto.PostResponseDto;
@@ -19,9 +20,8 @@ public class IndexController {
     private final HttpSession httpSession;
 
     @GetMapping("/")    //  메인 페이지 호출
-    public String index(Model model) {
+    public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postService.findAllDesc());
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
         if (user != null) {
             model.addAttribute("userName", user.getName());
         }
