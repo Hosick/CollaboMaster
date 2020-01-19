@@ -1,4 +1,4 @@
-package cm.cofig;
+package cm.config;
 
 import cm.config.auth.LoginUserArgumentResolver;
 import lombok.RequiredArgsConstructor;
@@ -10,7 +10,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Configuration
-public class WebConfig implements WebMvcConfigurer {
+public class WebConfig implements WebMvcConfigurer {    //  HandlerMethodArgumentResolver는 WebMvcConfigurer의 addArgumentResolvers()를 통해 추가해야한다
     private final LoginUserArgumentResolver loginUserArgumentResolver;
 
     @Override

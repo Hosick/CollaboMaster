@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 
 @RequiredArgsConstructor
 @Component
-public class LoginUserArgumentResolver implements HandlerMethodArgumentResolver {
+public class LoginUserArgumentResolver implements HandlerMethodArgumentResolver { // 컨트롤러에서 파라미터를 바인딩 해주는 역할
 
     private final HttpSession httpSession;
 
