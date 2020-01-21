@@ -1,5 +1,7 @@
 package cm.service;
 
+import cm.config.auth.LoginUser;
+import cm.domain.user.User;
 import cm.domain.post.Post;
 import cm.domain.post.PostRepository;
 import cm.web.dto.PostListResponseDto;
@@ -18,9 +20,9 @@ import java.util.stream.Collectors;
 public class PostService {
     private final PostRepository postRepository;
 
-    @Transactional  //  게시글 저장
-    public Long save(PostSaveRequestDto requestDto) {
-        return postRepository.save(requestDto.toEntity()).getId();
+    @Transactional  //  유저 객체와 saveRequestDto를 받아서 toEntity로 게시글 저장
+    public Long save(PostSaveRequestDto requestDto, User user) {
+        return postRepository.save(requestDto.toEntity(user)).getId();
     }
 
     @Transactional  //  게시글 수정

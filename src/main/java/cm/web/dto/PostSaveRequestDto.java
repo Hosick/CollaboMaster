@@ -1,5 +1,6 @@
 package cm.web.dto;
 
+import cm.config.auth.LoginUser;
 import cm.domain.post.Post;
 import cm.domain.user.User;
 import lombok.Builder;
@@ -11,20 +12,18 @@ import lombok.NoArgsConstructor;
 public class PostSaveRequestDto {
     private String title;
     private String content;
-    private User author;
 
     @Builder
-    public PostSaveRequestDto(String title, String content, User author){
+    public PostSaveRequestDto(String title, String content, Long author){
         this.title = title;
         this.content = content;
-        this.author = author;
     }
 
-    public Post toEntity(){ //  게시물 생성 후 리턴
+    public Post toEntity(User user){ //  작성자(User)받아서 게시물 생성 후 리턴
         return Post.builder()
                 .title(title)
                 .content(content)
-                .user(author)
+                .user(user)
                 .build();
     }
 }

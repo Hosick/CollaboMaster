@@ -2,6 +2,7 @@ package cm.web;
 
 import cm.config.auth.LoginUser;
 import cm.config.auth.dto.SessionUser;
+import cm.domain.user.User;
 import cm.service.PostService;
 import cm.web.dto.PostResponseDto;
 import lombok.RequiredArgsConstructor;
