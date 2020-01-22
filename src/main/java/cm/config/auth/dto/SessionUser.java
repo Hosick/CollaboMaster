@@ -23,4 +23,5 @@ public class SessionUser implements Serializable {
         this.picture = user.getPicture();
         this.role = user.getRole();
     }
+
 }

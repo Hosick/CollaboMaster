@@ -6,14 +6,14 @@
     <div class="row">
         <div class="col-md-6">
 
-            {{#userName}}
-                <span id="user">{{userName}}님 안녕하세요</span>
+            {{#loginUserName}}
+                <span id="user">{{loginUserName}}님 안녕하세요</span>
                 <a href="/logout" class="btn btn-info active" role="button">로그아웃</a>
-            {{/userName}}
-            {{^userName}}
+            {{/loginUserName}}
+            {{^loginUserName}}
                 <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">구글 로그인</a>
                 <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">네이버 로그인</a>
-            {{/userName}}
+            {{/loginUserName}}
         </div>
     </div>
 
@@ -21,11 +21,11 @@
     <!--검색, 작성 영역-->
     <div class="row">
         <div class="col-md-12">
-            {{#userName}}
+            {{#loginUserName}}
                 <span style="float:right">
                     <a href="/post/save" role="button" class="btn btn-primary">글 등록</a>
                 </span>
-            {{/userName}}
+            {{/loginUserName}}
         </div>
     </div>
     <br>
