@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -51,5 +52,14 @@ public class PostService {
         Post post = postRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id = " + id));
         postRepository.delete(post);
+    }
+
+    /*글 수정페이지에서 로그인한 사용자가 해당 글 작성자인지 확인*/
+    public boolean isWriter(Long postId, Long userId) {
+        Post post = postRepository.findById(postId)
+                .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id = " + postId));
+        if (post.getUser().getId().equals(userId))
+            return true;
+        return false;
     }
 }

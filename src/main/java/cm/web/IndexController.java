@@ -35,8 +35,9 @@ public class IndexController {
     }
 
     @GetMapping("/post/update/{id}")    //  글 수정 페이지 호출
-    public String postUpdate(@PathVariable Long id, Model model) {
+    public String postUpdate(@PathVariable Long id, Model model, @LoginUser SessionUser user) {
         PostResponseDto dto = postService.findById(id);
+        model.addAttribute("isWriter",postService.isWriter(id, user.getId()));  //  게시물 작성자가 들어가면 true
         model.addAttribute("post", dto);
         return "post-update";
     }
