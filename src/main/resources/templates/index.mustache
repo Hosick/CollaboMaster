@@ -16,16 +16,22 @@
             {{/loginUserName}}
         </div>
     </div>
+    </br>
 
 
     <!--검색, 작성 영역-->
     <div class="row">
         <div class="col-md-12">
-            {{#loginUserName}}
-                <span style="float:right">
-                    <a href="/post/save" role="button" class="btn btn-primary">글 등록</a>
+             <span style="float:left">
+                    <a href="" role="button" class="btn btn-dark">분류</a>
+                    <a href="" role="button" class="btn btn-dark">정렬</a>
+             </span>
+            <span style="float:right">
+                      <a href="" role="button" class="btn btn-dark">검색</a>
+                {{#loginUserName}}
+                    <a href="/post/save" role="button" class="btn btn-dark">글 등록</a>
+                {{/loginUserName}}
                 </span>
-            {{/loginUserName}}
         </div>
     </div>
     <br>
