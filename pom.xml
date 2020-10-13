@@ -73,7 +73,7 @@
         <dependency><!--junit 테스트 의존성 추가-->
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.13.1</version>
             <scope>test</scope>
         </dependency>
         <dependency><!--h2 데이터베이스 의존성 추가-->
